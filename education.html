@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Education | ASWORA</title>
+
+    <link rel="stylesheet" href="Assets/css/style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* EDUCATION PAGE */
+
+        .education-page {
+            min-height: 100vh;
+            padding: 75px 8% 90px;
+            background: #101410;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Heading */
+
+        .education-heading {
+            text-align: center;
+            margin-bottom: 75px;
+        }
+
+        .education-heading .welcome {
+            color: #c5ff55;
+            letter-spacing: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .education-heading h1 {
+            font-size: clamp(36px, 5vw, 55px);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .education-heading h1 span {
+            color: #c5ff55;
+        }
+
+        .education-heading .subtitle {
+            color: #a4ada2;
+            font-size: 15px;
+            max-width: 550px;
+            margin: auto;
+            line-height: 1.8;
+        }
+.education-duration {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #c5ff55;
+    background: rgba(197, 255, 85, 0.08);
+    border: 1px solid rgba(197, 255, 85, 0.2);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.education-duration i {
+    font-size: 13px;
+}
+        .heading-line {
+            width: 65px;
+            height: 4px;
+            background: #c5ff55;
+            border-radius: 10px;
+            margin: 25px auto 0;
+        }
+
+        /* Timeline */
+
+        .education-timeline {
+            max-width: 950px;
+            margin: auto;
+            position: relative;
+        }
+
+        .education-timeline::before {
+            content: "";
+            position: absolute;
+            left: 34px;
+            top: 15px;
+            bottom: 15px;
+            width: 2px;
+            background: linear-gradient(
+                to bottom,
+                #c5ff55,
+                rgba(197, 255, 85, 0.1)
+            );
+        }
+
+        .education-item {
+            position: relative;
+            padding-left: 100px;
+            margin-bottom: 55px;
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .education-item:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        /* Timeline Icon */
+
+        .timeline-icon {
+            position: absolute;
+            left: 0;
+            top: 25px;
+            width: 70px;
+            height: 70px;
+            background: #c5ff55;
+            color: #101410;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            border: 7px solid #20291c;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(197, 255, 85, 0.15);
+        }
+
+        /* Education Card */
+
+        .education-card {
+            position: relative;
+            padding: 35px 40px;
+            background: linear-gradient(135deg, #1b211a, #171c17);
+            border: 1px solid rgba(197, 255, 85, 0.15);
+            border-radius: 20px;
+            transition: 0.4s ease;
+            overflow: hidden;
+        }
+
+        .education-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: #c5ff55;
+        }
+
+        .education-card:hover {
+            transform: translateY(-7px);
+            border-color: #c5ff55;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+
+        .degree-label {
+            color: #c5ff55;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .education-number {
+            font-size: 35px;
+            font-weight: 800;
+            color: rgba(197, 255, 85, 0.15);
+        }
+
+        .education-card h2 {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .college-name {
+            color: #c5ff55;
+            font-size: 15px;
+            font-weight: 500;
+            margin-bottom: 18px;
+        }
+
+        .education-description {
+            color: #aab2a7;
+            font-size: 14px;
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        /* Details */
+
+        .education-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .detail-tag {
+            background: rgba(197, 255, 85, 0.08);
+            color: #d8e6cc;
+            border: 1px solid rgba(197, 255, 85, 0.12);
+            padding: 8px 13px;
+            border-radius: 7px;
+            font-size: 12px;
+        }
+
+        .detail-tag i {
+            color: #c5ff55;
+            margin-right: 7px;
+        }
+
+        /* Status */
+
+        .education-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 9px 16px;
+            border-radius: 30px;
+            background: rgba(197, 255, 85, 0.1);
+            color: #c5ff55;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .education-status i {
+            font-size: 9px;
+        }
+
+        .completed-status {
+            background: rgba(255, 255, 255, 0.07);
+            color: #d1d8ce;
+        }
+
+        /* Bottom Quote */
+
+        .education-quote {
+            max-width: 750px;
+            margin: 75px auto 0;
+            text-align: center;
+            padding: 35px 25px;
+            border-top: 1px solid rgba(197, 255, 85, 0.2);
+            border-bottom: 1px solid rgba(197, 255, 85, 0.2);
+        }
+
+        .education-quote i {
+            font-size: 28px;
+            color: #c5ff55;
+            margin-bottom: 18px;
+        }
+
+        .education-quote h3 {
+            font-size: 19px;
+            font-weight: 500;
+            line-height: 1.8;
+        }
+
+        .education-quote h3 span {
+            color: #c5ff55;
+        }
+
+        .education-quote p {
+            color: #899487;
+            font-size: 12px;
+            margin-top: 15px;
+            letter-spacing: 2px;
+        }
+
+        /* Animation */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+
+        @media (max-width: 700px) {
+
+            .education-page {
+                padding: 55px 5% 65px;
+            }
+
+            .education-heading {
+                margin-bottom: 55px;
+            }
+
+            .education-timeline::before {
+                left: 23px;
+            }
+
+            .education-item {
+                padding-left: 65px;
+                margin-bottom: 35px;
+            }
+
+            .timeline-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 17px;
+                border-width: 5px;
+            }
+
+            .education-card {
+                padding: 25px 22px;
+            }
+
+            .education-card h2 {
+                font-size: 19px;
+            }
+
+            .education-number {
+                font-size: 27px;
+            }
+
+            .education-description {
+                font-size: 13px;
+            }
+
+            .education-quote h3 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="Assets/images/logo.png" alt="ASWORA Logo">
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="education.html" class="active">Education</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certifications.html">Certifications</a></li>
+        </ul>
+
+        <a href="contact.html" class="contact-btn">Contact Me</a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
+            ☰
+        </button>
+
+    </nav>
+</header>
+
+
+<!-- EDUCATION SECTION -->
+
+
+<section class="education-timeline">
+
+    <!-- MCA -->
+
+    <article class="education-item">
+
+        <div class="timeline-icon">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+
+        <div class="education-card">
+
+            <div class="card-top">
+                <span class="degree-label">POSTGRADUATION</span>
+                <span class="education-number">01</span>
+            </div>
+
+            <h2>Master of Computer Applications (MCA)</h2>
+
+            <p class="college-name">
+                <i class="fas fa-university"></i>
+                Santhigiri College of Computer Sciences, Vazhithala
+            </p>
+
+            <p class="education-description">
+                Currently pursuing my MCA, expanding my knowledge
+                in advanced computer applications, programming,
+                software development, database management, and
+                modern technologies. Developing technical skills
+                and preparing for professional opportunities in
+                the IT industry.
+            </p>
+
+            <div class="education-details">
+                <span class="detail-tag">
+                    <i class="fas fa-laptop-code"></i>
+                    Computer Science
+                </span>
+
+                <span class="detail-tag">
+                    <i class="fas fa-code"></i>
+                    Software Development
+                </span>
+
+                <span class="detail-tag">
+                    <i class="fas fa-database"></i>
+                    Database Management
+                </span>
+            </div>
+
+            <span class="education-status">
+                <i class="fas fa-circle"></i>
+                Currently Studying
+            </span>
+
+        </div>
+    </article>
+
+
+    <!-- BCA -->
+
+    <article class="education-item">
+
+        <div class="timeline-icon">
+            <i class="fas fa-book-open"></i>
+        </div>
+
+        <div class="education-card">
+
+            <div class="card-top">
+                <span class="degree-label">UNDERGRADUATION</span>
+                <span class="education-number">02</span>
+            </div>
+
+            <h2>Bachelor of Computer Applications (BCA)</h2>
+
+            <p class="college-name">
+                <i class="fas fa-university"></i>
+                Santhigiri College of Computer Sciences, Vazhithala
+            </p>
+<p class="education-duration">
+    <i class="fas fa-calendar-alt"></i> 2022 – 2025
+</p>
+            <p class="education-description">
+                Completed my BCA, gaining a strong foundation
+                in computer science, programming, web development,
+                and database technologies. Developed practical
+                knowledge through academic projects and improved
+                my problem-solving and programming skills.
+            </p>
+
+            <div class="education-details">
+                <span class="detail-tag">
+                    <i class="fas fa-code"></i>
+                    Java
+                </span>
+
+                <span class="detail-tag">
+                    <i class="fas fa-globe"></i>
+                    Web Development
+                </span>
+
+                <span class="detail-tag">
+                    <i class="fas fa-database"></i>
+                    MySQL
+                </span>
+            </div>
+
+            <span class="education-status completed-status">
+                <i class="fas fa-check-circle"></i>
+                Successfully Completed
+            </span>
+
+        </div>
+    </article>
+
+
+    <!-- HIGHER SECONDARY -->
+
+    <article class="education-item">
+
+        <div class="timeline-icon">
+            <i class="fas fa-school"></i>
+        </div>
+
+        <div class="education-card">
+
+            <div class="card-top">
+                <span class="degree-label">HIGHER SECONDARY EDUCATION</span>
+                <span class="education-number">03</span>
+            </div>
+
+            <h2>Higher Secondary Education</h2>
+
+            <p class="college-name">
+                <i class="fas fa-university"></i>
+                MKNMHSS Higher Secondary School, Kumaramangalam
+            </p>
+<p class="education-duration">
+    <i class="fas fa-calendar-alt"></i> 2020 – 2021
+</p>
+            <p class="education-description">
+                Completed my higher secondary education, building
+                a foundation in academic learning, analytical
+                thinking, communication, and problem-solving.
+                This stage helped prepare me for my higher studies.
+            </p>
+
+            <div class="education-details">
+                <span class="detail-tag">
+                    <i class="fas fa-book"></i>
+                    Higher Secondary
+                </span>
+
+                <span class="detail-tag">
+                    <i class="fas fa-lightbulb"></i>
+                    Analytical Thinking
+                </span>
+            </div>
+
+            <span class="education-status completed-status">
+                <i class="fas fa-check-circle"></i>
+                Successfully Completed
+            </span>
+
+        </div>
+    </article>
+
+
+    <!-- HIGH SCHOOL -->
+
+    <article class="education-item">
+
+        <div class="timeline-icon">
+            <i class="fas fa-book-reader"></i>
+        </div>
+
+        <div class="education-card">
+
+            <div class="card-top">
+                <span class="degree-label">SCHOOL EDUCATION</span>
+                <span class="education-number">04</span>
+            </div>
+
+            <h2>High School Education</h2>
+
+            <p class="college-name">
+                <i class="fas fa-university"></i>
+                MKNMHSS Higher Secondary School, Kumaramangalam
+            </p>
+<p class="education-duration">
+    <i class="fas fa-calendar-alt"></i> 2019
+</p>
+            <p class="education-description">
+                Completed my high school education, developing
+                essential academic knowledge, discipline,
+                teamwork, and communication skills. This was
+                the beginning of my learning journey.
+            </p>
+
+            <div class="education-details">
+                <span class="detail-tag">
+                    <i class="fas fa-book"></i>
+                    School Education
+                </span>
+
+                <span class="detail-tag">
+                    <i class="fas fa-users"></i>
+                    Teamwork
+                </span>
+            </div>
+
+            <span class="education-status completed-status">
+                <i class="fas fa-check-circle"></i>
+                Successfully Completed
+            </span>
+
+        </div>
+    </article>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+    <p>© 2026 ASWORA | Designed by Aswathy Shaji</p>
+</footer>
+
+
+<script src="Assets/javascript/script.js"></script>
+
+</body>
+</html>

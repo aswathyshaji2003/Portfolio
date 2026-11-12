@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | ASWORA</title>
+
+    <link rel="stylesheet" href="Assets/css/style.css">
+
+    <style>
+        /* ABOUT PAGE DESIGN */
+
+        .about-section {
+            width: 85%;
+            max-width: 1150px;
+            margin: auto;
+            padding: 65px 0;
+        }
+
+        .about-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .about-heading .welcome {
+            margin-bottom: 12px;
+        }
+
+        .about-heading h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .about-heading h1 span {
+            color: #c5ff55;
+        }
+
+        .about-heading p {
+            color: #999;
+            line-height: 1.8;
+        }
+
+        .about-main {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 55px;
+            align-items: center;
+            background: #171e17;
+            border: 1px solid #303b30;
+            border-radius: 20px;
+            padding: 35px;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 260px;
+            height: 310px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 18px;
+            border: 3px solid #c5ff55;
+            box-shadow: 0 10px 35px rgba(197, 255, 85, 0.12);
+        }
+
+        .about-image p {
+            color: #c5ff55;
+            margin-top: 18px;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .about-info .small-title {
+            color: #c5ff55;
+            font-size: 13px;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .about-info h2 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .about-info h2 span {
+            color: #c5ff55;
+        }
+
+        .about-role {
+            color: #ccc;
+            font-size: 17px;
+            margin-bottom: 22px;
+        }
+
+        .about-info > p {
+            color: #aaa;
+            line-height: 1.9;
+            margin-bottom: 17px;
+            font-size: 15px;
+        }
+
+        .about-facts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .fact-box {
+            background: #222b22;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid #c5ff55;
+        }
+
+        .fact-box h4 {
+            color: #c5ff55;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .fact-box p {
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        .about-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 28px;
+        }
+
+        /* LOWER SECTIONS */
+
+        .about-extra {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .extra-card {
+            background: #171e17;
+            border: 1px solid #303b30;
+            padding: 28px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .extra-card:hover {
+            border-color: #c5ff55;
+            transform: translateY(-5px);
+        }
+
+        .extra-card .icon {
+            font-size: 27px;
+            margin-bottom: 15px;
+        }
+
+        .extra-card h3 {
+            color: #c5ff55;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .extra-card p {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .about-quote {
+            margin-top: 30px;
+            padding: 25px;
+            text-align: center;
+            background: #222b22;
+            border-radius: 12px;
+            border: 1px solid #394639;
+        }
+
+        .about-quote p {
+            color: #ddd;
+            font-size: 17px;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .about-quote span {
+            color: #c5ff55;
+        }
+
+        @media (max-width: 850px) {
+            .about-main {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .about-image img {
+                width: 220px;
+                height: 260px;
+            }
+
+            .about-buttons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .about-section {
+                width: 90%;
+                padding: 45px 0;
+            }
+
+            .about-heading h1 {
+                font-size: 32px;
+            }
+
+            .about-main {
+                padding: 22px;
+            }
+
+            .about-info h2 {
+                font-size: 27px;
+            }
+
+            .about-facts,
+            .about-extra {
+                grid-template-columns: 1fr;
+            }
+
+            .about-quote p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <header>
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+    <img src="Assets/images/logo.png" alt="ASWORA Logo">
+</a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="certifications.html" class="active">Certifications</a></li>
+
+            </ul>
+
+            <a href="contact.html" class="contact-btn">Contact Me</a>
+
+            <button class="menu-btn" id="menuBtn">☰</button>
+
+        </nav>
+    </header>
+
+    <!-- ABOUT SECTION -->
+
+    <main class="about-section">
+
+        <div class="about-heading">
+            <p class="welcome">GET TO KNOW ME</p>
+
+            <h1>About <span>Me</span></h1>
+
+            <p>
+                A little introduction about my background,
+                education and passion for technology.
+            </p>
+        </div>
+
+        <!-- PROFILE SECTION -->
+
+        <section class="about-main">
+
+            <div class="about-image">
+                <img src="Assets/images/me.jpeg"
+                     alt="Aswathy Shaji">
+
+                <p>MCA STUDENT | ASPIRING DEVELOPER</p>
+            </div>
+
+            <div class="about-info">
+
+                <p class="small-title">WHO AM I?</p>
+
+                <h2>Hello, I'm <span>Aswathy Shaji</span></h2>
+
+                <h3 class="about-role">
+                    MCA Student & Aspiring Software Developer
+                </h3>
+
+                <p>
+                    I am a postgraduate computer applications student
+                    with a strong interest in software development and
+                    modern web technologies.
+                </p>
+
+                <p>
+                    I completed my Bachelor of Computer Applications
+                    (BCA) and am currently pursuing my Master of
+                    Computer Applications (MCA). Through my academic
+                    projects, I have gained practical experience in
+                    developing web-based applications and working with
+                    different programming technologies.
+                </p>
+
+                <p>
+                    I enjoy learning new technologies, solving
+                    programming problems and creating useful
+                    applications. My goal is to grow as a software
+                    developer and build solutions that make a
+                    meaningful difference.
+                </p>
+
+                <!-- PERSONAL DETAILS -->
+
+                <div class="about-facts">
+
+                    <div class="fact-box">
+                        <h4>EDUCATION</h4>
+                        <p>Master of Computer Applications</p>
+                    </div>
+
+                    <div class="fact-box">
+                        <h4>DEGREE</h4>
+                        <p>Bachelor of Computer Applications</p>
+                    </div>
+
+                    <div class="fact-box">
+                        <h4>LOCATION</h4>
+                        <p>Kerala, India</p>
+                    </div>
+
+                    <div class="fact-box">
+                        <h4>INTEREST</h4>
+                        <p>Web & Software Development</p>
+                    </div>
+
+                </div>
+
+                <!-- BUTTONS -->
+
+                <div class="about-buttons">
+
+                    <a href="Assets/documents/Aswathy_Shaji_Resume final.pdf"
+                       class="primary-btn"
+                       target="_blank">
+                        Download CV
+                    </a>
+
+                    <a href="contact.html" class="secondary-btn">
+                        Get In Touch
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ADDITIONAL INFORMATION -->
+
+        <section class="about-extra">
+
+            <div class="extra-card">
+
+                <div class="icon">💻</div>
+
+                <h3>My Technical Journey</h3>
+
+                <p>
+                    My journey in computer applications has helped
+                    me develop a foundation in programming,
+                    database management and web development.
+                    I enjoy applying my knowledge through practical
+                    projects and continuously improving my skills.
+                </p>
+
+            </div>
+
+            <div class="extra-card">
+
+                <div class="icon">🎯</div>
+
+                <h3>My Career Goal</h3>
+
+                <p>
+                    I aspire to become a skilled software developer.
+                    I look forward to gaining professional experience,
+                    exploring emerging technologies and contributing
+                    to meaningful software development projects.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- QUOTE -->
+
+        <div class="about-quote">
+
+            <p>
+                "Learning never stops. Every new challenge is
+                an opportunity to <span>grow, improve and create.</span>"
+            </p>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+        <p>© 2026 ASWORA | Designed & Developed by Aswathy Shaji</p>
+    </footer>
+
+    <script src="Assets/javascript/script.js"></script>
+
+</body>
+</html>

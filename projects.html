@@ -1,0 +1,628 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projects | ASWORA</title>
+
+    <link rel="stylesheet" href="assets/CSS/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+        /* PROJECT PAGE */
+
+        .projects-page {
+            min-height: 100vh;
+            padding: 75px 8% 90px;
+            background: #101410;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* HEADING */
+
+        .projects-heading {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .projects-heading .welcome {
+            color: #c5ff55;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .projects-heading h1 {
+            font-size: clamp(36px, 5vw, 55px);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .projects-heading h1 span {
+            color: #c5ff55;
+        }
+
+        .projects-heading p {
+            color: #a4ada2;
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .heading-line {
+            width: 65px;
+            height: 4px;
+            background: #c5ff55;
+            border-radius: 10px;
+            margin: 25px auto 0;
+        }
+
+        /* PROJECT GRID */
+
+        .projects-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        /* PROJECT CARD */
+
+        .project-card {
+            position: relative;
+            padding: 35px;
+            background: linear-gradient(145deg, #1c241b, #171c17);
+            border: 1px solid rgba(197, 255, 85, 0.13);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #c5ff55;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-card::after {
+            content: "";
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 160px;
+            height: 160px;
+            background: rgba(197, 255, 85, 0.05);
+            border-radius: 50%;
+            transition: 0.4s ease;
+            pointer-events: none;
+        }
+
+        .project-card:hover::after {
+            transform: scale(1.5);
+        }
+
+        /* PROJECT TOP */
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .project-number {
+            color: #c5ff55;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .project-icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(197, 255, 85, 0.1);
+            border: 1px solid rgba(197, 255, 85, 0.2);
+            border-radius: 14px;
+            color: #c5ff55;
+            font-size: 23px;
+        }
+
+        /* PROJECT DETAILS */
+
+        .project-card h2 {
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .project-level {
+            display: inline-block;
+            color: #c5ff55;
+            font-size: 12px;
+            font-weight: 600;
+            background: rgba(197, 255, 85, 0.09);
+            padding: 7px 13px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .project-description {
+            color: #aab2a7;
+            font-size: 13px;
+            line-height: 1.9;
+            margin-bottom: 25px;
+        }
+
+        /* FEATURES */
+
+        .project-features {
+            margin-bottom: 25px;
+        }
+
+        .project-features h3 {
+            font-size: 13px;
+            color: #e7eddf;
+            margin-bottom: 13px;
+        }
+
+        .project-features ul {
+            list-style: none;
+        }
+
+        .project-features li {
+            color: #9da99a;
+            font-size: 12px;
+            margin-bottom: 9px;
+        }
+
+        .project-features li i {
+            color: #c5ff55;
+            margin-right: 9px;
+            font-size: 11px;
+        }
+
+        /* TECHNOLOGY TAGS */
+
+        .tech-heading {
+            color: #c5ff55;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .skill-tags span {
+            background: rgba(197, 255, 85, 0.08);
+            color: #dce9d3;
+            border: 1px solid rgba(197, 255, 85, 0.15);
+            padding: 7px 12px;
+            border-radius: 7px;
+            font-size: 11px;
+            transition: 0.3s ease;
+        }
+
+        .skill-tags span:hover {
+            background: #c5ff55;
+            color: #101410;
+        }
+
+        /* FINAL MESSAGE */
+
+        .project-message {
+            max-width: 850px;
+            margin: 75px auto 0;
+            padding: 35px;
+            text-align: center;
+            border: 1px solid rgba(197, 255, 85, 0.2);
+            border-radius: 18px;
+            background: linear-gradient(
+                135deg,
+                rgba(197, 255, 85, 0.09),
+                rgba(197, 255, 85, 0.02)
+            );
+        }
+
+        .project-message i {
+            font-size: 28px;
+            color: #c5ff55;
+            margin-bottom: 15px;
+        }
+
+        .project-message h2 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .project-message h2 span {
+            color: #c5ff55;
+        }
+
+        .project-message p {
+            color: #a4ada2;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* ANIMATION */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card {
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .project-card:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .project-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 800px) {
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .projects-page {
+                padding: 55px 5% 65px;
+            }
+
+            .projects-heading {
+                margin-bottom: 50px;
+            }
+
+            .project-card {
+                padding: 27px 23px;
+            }
+
+            .project-card h2 {
+                font-size: 19px;
+            }
+
+            .project-message {
+                padding: 25px 18px;
+            }
+
+            .project-message h2 {
+                font-size: 18px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="Assets/images/logo.png" alt="ASWORA Logo">
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="certifications.html" class="active">Certifications</a></li>
+
+        </ul>
+
+        <a href="contact.html" class="contact-btn">Contact Me</a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
+            ☰
+        </button>
+
+    </nav>
+</header>
+
+
+<!-- PROJECTS CONTENT -->
+
+<main class="projects-page">
+
+    <!-- HEADING -->
+
+    <div class="projects-heading">
+
+        <p class="welcome">MY WORK & CREATIONS</p>
+
+        <h1>Projects I've <span>Built</span></h1>
+
+        <p>
+            A showcase of my academic projects, practical experience,
+            creativity, and passion for developing useful software applications.
+        </p>
+
+        <div class="heading-line"></div>
+
+    </div>
+
+
+    <!-- PROJECT CARDS -->
+
+    <section class="projects-grid">
+
+
+        <!-- PROJECT 01 -->
+
+        <article class="project-card">
+
+            <div class="project-top">
+
+                <span class="project-number">PROJECT 01</span>
+
+                <div class="project-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+
+            </div>
+
+            <h2>Learning Management System</h2>
+
+            <span class="project-level">BCA Mini Project</span>
+
+            <p class="project-description">
+                A web-based Learning Management System developed to
+                simplify and manage educational activities. The system
+                provides a platform for managing courses, students,
+                and learning processes with an organized interface.
+            </p>
+
+            <div class="project-features">
+
+                <h3>Key Features</h3>
+
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Course and student management
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Automated grading
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Student dashboards
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Secure user authentication
+                    </li>
+                </ul>
+
+            </div>
+
+            <p class="tech-heading">TECHNOLOGIES USED</p>
+
+            <div class="skill-tags">
+                <span>PHP</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>MySQL</span>
+            </div>
+
+        </article>
+
+
+        <!-- PROJECT 02 -->
+
+        <article class="project-card">
+
+            <div class="project-top">
+
+                <span class="project-number">PROJECT 02</span>
+
+                <div class="project-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+
+            </div>
+
+            <h2>Near-Wear Shopping Management System</h2>
+
+            <span class="project-level">BCA Main Project</span>
+
+            <p class="project-description">
+                A web-based shopping management application developed
+                to manage shopping activities efficiently. It helps
+                organize products, customers, and orders through
+                an administration system.
+            </p>
+
+            <div class="project-features">
+
+                <h3>Key Features</h3>
+
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Product management
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Customer management
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Order management
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Admin management
+                    </li>
+                </ul>
+
+            </div>
+
+            <p class="tech-heading">TECHNOLOGIES USED</p>
+
+            <div class="skill-tags">
+                <span>Python</span>
+                <span>Django</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>MySQL</span>
+
+
+
+            </div>
+
+        </article>
+
+
+        <!-- PROJECT 03 -->
+
+        <article class="project-card">
+
+            <div class="project-top">
+
+                <span class="project-number">PROJECT 03</span>
+
+                <div class="project-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+
+            </div>
+
+            <h2>AI Diet Plan Recommendation System</h2>
+
+            <span class="project-level">MCA Mini Project</span>
+
+            <p class="project-description">
+                A web-based diet management system that generates
+                personalized diet plan recommendations based on
+                user details, fitness goals, and allergy information.
+                Coaches can review and modify the recommendations
+                before sharing them with users.
+            </p>
+
+            <div class="project-features">
+
+                <h3>Key Features</h3>
+
+                <ul>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Personalized diet recommendations
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        User fitness and allergy details
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Coach review and plan modification
+                    </li>
+
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        Exercise video assignments
+                    </li>
+                </ul>
+
+            </div>
+
+            <p class="tech-heading">TECHNOLOGIES USED</p>
+
+            <div class="skill-tags">
+                <span>PHP</span>
+                <span>Laravel</span>
+                <span>MySQL</span>
+                <span>AI Integration</span>
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- BOTTOM MESSAGE -->
+
+    <section class="project-message">
+
+        <i class="fas fa-lightbulb"></i>
+
+        <h2>Ideas into Code, <span>Code into Reality.</span></h2>
+
+        <p>
+            Every project is an opportunity to learn something new,
+            solve problems, improve my development skills, and turn
+            creative ideas into practical applications.
+        </p>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+    <p>© 2026 ASWORA | Designed by Aswathy Shaji</p>
+</footer>
+
+
+<script src="assets/JavaScript/script.js"></script>
+
+</body>
+</html>

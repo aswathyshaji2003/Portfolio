@@ -1,0 +1,526 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact | ASWORA</title>
+
+    <link rel="stylesheet" href="assets/CSS/style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+        /* CONTACT PAGE */
+
+        .contact-page {
+            min-height: 85vh;
+            padding: 70px 8%;
+            background: #101410;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .contact-heading .welcome {
+            color: #c5ff55;
+            font-size: 13px;
+            letter-spacing: 4px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .contact-heading h1 {
+            font-size: clamp(35px, 5vw, 52px);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .contact-heading h1 span {
+            color: #c5ff55;
+        }
+
+        .contact-heading p {
+            color: #a4ada2;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .contact-heading .heading-line {
+            width: 65px;
+            height: 4px;
+            background: #c5ff55;
+            margin: 22px auto 0;
+            border-radius: 10px;
+        }
+
+        /* MAIN CONTACT LAYOUT */
+
+        .contact-wrapper {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 35px;
+            align-items: stretch;
+        }
+
+        /* LEFT INFORMATION */
+
+        .contact-intro {
+            background: linear-gradient(145deg, #1d281c, #151c15);
+            border: 1px solid rgba(197,255,85,0.15);
+            border-radius: 20px;
+            padding: 40px 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-intro::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            background: rgba(197,255,85,0.06);
+            border-radius: 50%;
+            right: -75px;
+            bottom: -75px;
+        }
+
+        .intro-icon {
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 17px;
+            background: rgba(197,255,85,0.1);
+            color: #c5ff55;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .contact-intro h2 {
+            font-size: 28px;
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+
+        .contact-intro h2 span {
+            color: #c5ff55;
+        }
+
+        .contact-intro > p {
+            color: #a4ada2;
+            font-size: 14px;
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+        .availability {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(197,255,85,0.07);
+            border: 1px solid rgba(197,255,85,0.17);
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .availability i {
+            color: #c5ff55;
+            font-size: 19px;
+        }
+
+        .availability strong {
+            display: block;
+            color: white;
+            font-size: 13px;
+        }
+
+        .availability span {
+            color: #9da99a;
+            font-size: 11px;
+        }
+
+        /* RIGHT CONTACT CARDS */
+
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .contact-card {
+            background: #1a211a;
+            border: 1px solid #303b30;
+            padding: 27px 22px;
+            border-radius: 17px;
+            transition: 0.35s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-7px);
+            border-color: #c5ff55;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+        }
+
+        .contact-card-icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(197,255,85,0.1);
+            color: #c5ff55;
+            border-radius: 13px;
+            font-size: 22px;
+            margin-bottom: 22px;
+        }
+
+        .contact-card h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
+        }
+
+        .contact-card p {
+            color: #9da99a;
+            font-size: 12px;
+            line-height: 1.8;
+            overflow-wrap: anywhere;
+            margin-bottom: 20px;
+        }
+
+        .contact-card a {
+            color: #c5ff55;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: auto;
+            transition: 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: white;
+        }
+
+        .contact-card a i {
+            margin-left: 5px;
+            transition: 0.3s;
+        }
+
+        .contact-card a:hover i {
+            transform: translateX(5px);
+        }
+
+        /* BOTTOM MESSAGE */
+
+        .contact-bottom {
+            max-width: 1150px;
+            margin: 35px auto 0;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(197,255,85,0.15);
+            background: rgba(197,255,85,0.04);
+            border-radius: 15px;
+        }
+
+        .contact-bottom p {
+            color: #a4ada2;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .contact-bottom span {
+            color: #c5ff55;
+            font-weight: 600;
+        }
+
+        /* ANIMATION */
+
+        @keyframes contactFade {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .contact-intro,
+        .contact-card {
+            animation: contactFade 0.7s ease both;
+        }
+
+        .contact-card:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .contact-card:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .contact-card:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 900px) {
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-intro {
+                padding: 35px;
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            .contact-page {
+                padding: 50px 5%;
+            }
+
+            .contact-details {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-intro {
+                padding: 28px 23px;
+            }
+
+            .contact-intro h2 {
+                font-size: 24px;
+            }
+
+            .contact-heading {
+                margin-bottom: 40px;
+            }
+
+            .contact-card {
+                padding: 25px;
+            }
+
+            .contact-bottom {
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="Assets/images/logo.png" alt="ASWORA Logo">
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certification.html">Certifications</a></li>
+        </ul>
+
+        <a href="contact.html" class="contact-btn active">Contact Me</a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
+            ☰
+        </button>
+
+    </nav>
+</header>
+
+
+<!-- CONTACT SECTION -->
+
+<main class="contact-page">
+
+    <div class="contact-heading">
+
+        <p class="welcome">LET'S CONNECT</p>
+
+        <h1>Get In <span>Touch</span></h1>
+
+        <p>
+            Have an opportunity, project idea, or just want to connect?
+            I'd love to hear from you.
+        </p>
+
+        <div class="heading-line"></div>
+
+    </div>
+
+
+    <section class="contact-wrapper">
+
+        <!-- LEFT INTRODUCTION -->
+
+        <div class="contact-intro">
+
+            <div class="intro-icon">
+                <i class="fas fa-paper-plane"></i>
+            </div>
+
+            <h2>Let's Start a <span>Conversation.</span></h2>
+
+            <p>
+                I'm always interested in learning new technologies,
+                exploring creative ideas, and connecting with people.
+                Feel free to contact me for professional opportunities,
+                collaborations, or discussions.
+            </p>
+
+            <div class="availability">
+
+                <i class="fas fa-circle-check"></i>
+
+                <div>
+                    <strong>Open to Opportunities</strong>
+                    <span>Let's connect and create something meaningful.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CONTACT INFORMATION -->
+
+        <div class="contact-details">
+
+            <!-- EMAIL -->
+
+            <div class="contact-card">
+
+                <div class="contact-card-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+
+                <h3>Email Address</h3>
+
+                <p>aswathyshaji807@gmail.com</p>
+
+                <a href="mailto:aswathyshaji807@gmail.com">
+                    Send an Email <i class="fas fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <!-- LOCATION -->
+
+            <div class="contact-card">
+
+                <div class="contact-card-icon">
+                    <i class="fas fa-location-dot"></i>
+                </div>
+
+                <h3>Location</h3>
+
+                <p>Kerala, India</p>
+
+                <a href="https://www.google.com/maps/search/?api=1&query=Kerala%2C%20India"
+                   target="_blank" rel="noopener noreferrer">
+                    View Location <i class="fas fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <!-- LINKEDIN -->
+
+            <div class="contact-card">
+
+                <div class="contact-card-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                </div>
+
+                <h3>LinkedIn</h3>
+
+                <p>Connect with me professionally and explore my profile.</p>
+
+                <a href="https://www.linkedin.com/in/aswathy-shaji-a1948a358"
+                   target="_blank" rel="noopener noreferrer">
+                    Visit LinkedIn <i class="fas fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <!-- GITHUB -->
+
+            <div class="contact-card">
+
+                <div class="contact-card-icon">
+                    <i class="fab fa-github"></i>
+                </div>
+
+                <h3>GitHub</h3>
+
+                <p>Explore my projects, coding work, and development journey.</p>
+
+                <a href="https://github.com/"
+                   target="_blank" rel="noopener noreferrer">
+                    Visit GitHub <i class="fas fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BOTTOM MESSAGE -->
+
+    <section class="contact-bottom">
+
+        <p>
+            <span>Thank you for visiting ASWORA!</span>
+            I look forward to connecting with you and exploring new possibilities.
+        </p>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+    <p>© 2026 ASWORA | Designed by Aswathy Shaji</p>
+</footer>
+
+
+<script src="assets/JavaScript/script.js"></script>
+
+</body>
+</html>

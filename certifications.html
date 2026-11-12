@@ -1,0 +1,558 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Certifications | ASWORA</title>
+
+    <link rel="stylesheet" href="Assets/css/style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+        .certification-page {
+            min-height: 100vh;
+            padding: 75px 8% 90px;
+            background: #101410;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* HEADING */
+
+        .cert-heading {
+            text-align: center;
+            margin-bottom: 65px;
+        }
+
+        .cert-heading .welcome {
+            color: #c5ff55;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .cert-heading h1 {
+            font-size: clamp(35px, 5vw, 55px);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .cert-heading h1 span {
+            color: #c5ff55;
+        }
+
+        .cert-heading p {
+            color: #a4ada2;
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .heading-line {
+            width: 65px;
+            height: 4px;
+            background: #c5ff55;
+            border-radius: 10px;
+            margin: 25px auto 0;
+        }
+
+        /* CERTIFICATE GRID */
+
+        .certificate-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        /* CERTIFICATE CARD */
+
+        .certificate-card {
+            position: relative;
+            background: linear-gradient(145deg, #1c241b, #171c17);
+            border: 1px solid rgba(197, 255, 85, 0.15);
+            border-radius: 18px;
+            padding: 30px;
+            overflow: hidden;
+            transition: 0.4s ease;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-8px);
+            border-color: #c5ff55;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .certificate-card::after {
+            content: "";
+            position: absolute;
+            top: -55px;
+            right: -55px;
+            width: 150px;
+            height: 150px;
+            background: rgba(197, 255, 85, 0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cert-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .cert-number {
+            color: #c5ff55;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        .cert-icon {
+            width: 55px;
+            height: 55px;
+            background: rgba(197, 255, 85, 0.1);
+            border: 1px solid rgba(197, 255, 85, 0.2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c5ff55;
+            font-size: 24px;
+        }
+
+        .certificate-card h2 {
+            font-size: 20px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .issuer {
+            color: #c5ff55;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .cert-description {
+            color: #a4ada2;
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 22px;
+        }
+
+        .cert-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .cert-details span {
+            background: rgba(197, 255, 85, 0.08);
+            border: 1px solid rgba(197, 255, 85, 0.15);
+            color: #dce9d3;
+            padding: 7px 12px;
+            border-radius: 7px;
+            font-size: 11px;
+        }
+
+        /* VIEW BUTTON */
+
+        .view-cert {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 19px;
+            background: #c5ff55;
+            color: #101410;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+
+        .view-cert:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        .view-cert.disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        /* EMPTY STATE */
+
+        .add-certificate {
+            max-width: 1100px;
+            margin: 45px auto 0;
+            padding: 35px;
+            border: 1px dashed rgba(197, 255, 85, 0.3);
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .add-certificate i {
+            font-size: 30px;
+            color: #c5ff55;
+            margin-bottom: 15px;
+        }
+
+        .add-certificate h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .add-certificate p {
+            color: #9da99a;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* BOTTOM MESSAGE */
+
+        .cert-message {
+            max-width: 850px;
+            margin: 65px auto 0;
+            padding: 35px;
+            text-align: center;
+            border-radius: 18px;
+            border: 1px solid rgba(197, 255, 85, 0.2);
+            background: rgba(197, 255, 85, 0.04);
+        }
+
+        .cert-message i {
+            font-size: 28px;
+            color: #c5ff55;
+            margin-bottom: 15px;
+        }
+
+        .cert-message h2 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .cert-message h2 span {
+            color: #c5ff55;
+        }
+
+        .cert-message p {
+            color: #a4ada2;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        /* ANIMATION */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .certificate-card {
+            animation: fadeUp 0.7s ease both;
+        }
+
+        .certificate-card:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width: 800px) {
+            .certificate-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width: 600px) {
+            .certification-page {
+                padding: 55px 5% 65px;
+            }
+
+            .cert-heading {
+                margin-bottom: 50px;
+            }
+
+            .certificate-card {
+                padding: 25px 22px;
+            }
+
+            .certificate-card h2 {
+                font-size: 18px;
+            }
+
+            .cert-message {
+                padding: 25px 18px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<header>
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="Assets/images/logo.png" alt="ASWORA Logo">
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="education.html">Education</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certification.html" class="active">Certifications</a></li>
+        </ul>
+
+        <a href="contact.html" class="contact-btn">Contact Me</a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
+            ☰
+        </button>
+
+    </nav>
+</header>
+
+
+<!-- CERTIFICATIONS -->
+
+<main class="certification-page">
+
+    <div class="cert-heading">
+
+        <p class="welcome">MY ACHIEVEMENTS</p>
+
+        <h1>Certifications <span>& Recognition</span></h1>
+
+        <p>
+            A collection of certifications and learning achievements
+            that represent my commitment to continuous learning,
+            technical development, and professional growth.
+        </p>
+
+        <div class="heading-line"></div>
+
+    </div>
+
+
+    <!-- CERTIFICATE CARDS -->
+
+    
+<!-- CERTIFICATE CARDS -->
+<section class="certificate-grid">
+
+    <!-- CERTIFICATE 01 -->
+    <article class="certificate-card">
+        <div class="cert-top">
+            <span class="cert-number">CERTIFICATE 01</span>
+            <div class="cert-icon">
+                <i class="fas fa-cloud"></i>
+            </div>
+        </div>
+
+        <h2>Cloud Computing</h2>
+
+        <p class="issuer">
+            <i class="fas fa-building"></i>
+            NPTEL
+        </p>
+
+        <p class="cert-description">
+            Successfully completed the Cloud Computing course,
+            gaining knowledge of cloud architecture, services,
+            virtualization, and cloud technologies.
+        </p>
+
+        <div class="cert-details">
+            <span>Online Course</span>
+            <span>NPTEL</span>
+        </div>
+
+        <a href="Assets/documents/Cloud Computing certificate.pdf"
+           class="view-cert" target="_blank">
+            <i class="fas fa-file-pdf"></i>
+            View Certificate
+        </a>
+    </article>
+
+    <!-- CERTIFICATE 02 -->
+    <article class="certificate-card">
+        <div class="cert-top">
+            <span class="cert-number">CERTIFICATE 02</span>
+            <div class="cert-icon">
+                <i class="fas fa-desktop"></i>
+            </div>
+        </div>
+
+        <h2>Introduction to Operating Systems</h2>
+
+        <p class="issuer">
+            <i class="fas fa-building"></i>
+            NPTEL
+        </p>
+
+        <p class="cert-description">
+            Completed a course covering operating system
+            fundamentals, process management, memory management,
+            file systems, and system operations.
+        </p>
+
+        <div class="cert-details">
+            <span>Online Course</span>
+            <span>NPTEL</span>
+        </div>
+
+        <a href="Assets/documents/Operating system.pdf"
+           class="view-cert" target="_blank">
+            <i class="fas fa-file-pdf"></i>
+            View Certificate
+        </a>
+    </article>
+
+    <!-- CERTIFICATE 03 -->
+    <article class="certificate-card">
+        <div class="cert-top">
+            <span class="cert-number">CERTIFICATE 03</span>
+            <div class="cert-icon">
+                <i class="fas fa-microchip"></i>
+            </div>
+        </div>
+
+        <h2>Introduction to Internet of Things</h2>
+
+        <p class="issuer">
+            <i class="fas fa-building"></i>
+            NPTEL
+        </p>
+
+        <p class="cert-description">
+            Completed an introductory course on IoT concepts,
+            connected devices, sensors, communication technologies,
+            and IoT applications.
+        </p>
+
+        <div class="cert-details">
+            <span>Online Course</span>
+            <span>NPTEL</span>
+        </div>
+
+        <a href="Assets/documents/iot.pdf"
+           class="view-cert" target="_blank">
+            <i class="fas fa-file-pdf"></i>
+            View Certificate
+        </a>
+    </article>
+
+    <!-- CERTIFICATE 04 -->
+    <article class="certificate-card">
+        <div class="cert-top">
+            <span class="cert-number">CERTIFICATE 04</span>
+            <div class="cert-icon">
+                <i class="fab fa-python"></i>
+            </div>
+        </div>
+
+        <h2>Python Programming</h2>
+
+        <p class="issuer">
+            <i class="fas fa-building"></i>
+            Python Certificate
+        </p>
+
+        <p class="cert-description">
+            Successfully completed Python programming training,
+            developing knowledge of programming fundamentals,
+            variables, functions, control statements, and problem solving.
+        </p>
+
+        <div class="cert-details">
+            <span>Programming</span>
+            <span>Python</span>
+        </div>
+
+        <a href="assets/documents/certificates/python.pdf"
+           class="view-cert" target="_blank">
+            <i class="fas fa-file-pdf"></i>
+            View Certificate
+        </a>
+    </article>
+
+</section>
+
+
+
+    <!-- ADD MORE CERTIFICATES -->
+
+    <section class="add-certificate">
+
+        <i class="fas fa-certificate"></i>
+
+        <h3>More Achievements Coming Soon</h3>
+
+        <p>
+            Every certification represents a new learning
+            experience. This collection will continue to grow
+            as I explore new technologies and improve my skills.
+        </p>
+
+    </section>
+
+
+    <!-- BOTTOM MESSAGE -->
+
+    <section class="cert-message">
+
+        <i class="fas fa-graduation-cap"></i>
+
+        <h2>Learning Today, <span>Leading Tomorrow.</span></h2>
+
+        <p>
+            I believe that learning is a continuous journey.
+            Every course, certification, and new experience
+            helps me become a better developer.
+        </p>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+    <p>© 2026 ASWORA | Designed by Aswathy Shaji</p>
+</footer>
+
+
+<script src="Assets/javascript/script.js"></script>
+
+</body>
+</html>
