@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,347 +17,756 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        /* GENERAL */
+
+        /* =====================================
+           SKILLS PAGE - ASWORA
+        ===================================== */
 
         .skills-page {
             min-height: 100vh;
-            padding: 75px 8%;
+            padding: 65px 8%;
             background: #101410;
             color: white;
             font-family: 'Poppins', sans-serif;
         }
 
-        /* HERO */
+        /* HERO SECTION */
 
-        .skills-heading {
-            text-align: center;
-            margin-bottom: 55px;
+        .skills-hero {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 50px;
+            padding: 45px 0 75px;
         }
 
-        .skills-heading .welcome {
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #c5ff55;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 22px;
+        }
+
+        .hero-label span {
+            width: 8px;
+            height: 8px;
+            background: #c5ff55;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #c5ff55;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1.15;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
+
+        .hero-content h1 span {
+            color: #c5ff55;
+        }
+
+        .hero-content > p {
+            max-width: 580px;
+            color: #9ca69b;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .hero-bottom {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .hero-line {
+            width: 45px;
+            height: 2px;
+            background: #c5ff55;
+        }
+
+        .hero-bottom p {
             color: #c5ff55;
             font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 4px;
-            margin-bottom: 15px;
+            letter-spacing: 1px;
         }
 
-        .skills-heading h1 {
-            font-size: clamp(36px, 5vw, 55px);
-            font-weight: 800;
-            margin-bottom: 15px;
+        /* HERO VISUAL */
+
+        .hero-visual {
+            position: relative;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .skills-heading h1 span {
-            color: #c5ff55;
+        .visual-ring {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border: 1px solid rgba(197,255,85,0.25);
+            border-radius: 50%;
+            animation: rotateRing 18s linear infinite;
         }
 
-        .skills-heading > p:last-of-type {
-            max-width: 650px;
-            margin: auto;
-            color: #929d90;
-            font-size: 14px;
-            line-height: 1.9;
-        }
-
-        .heading-line {
-            width: 65px;
-            height: 4px;
-            border-radius: 10px;
+        .visual-ring::before,
+        .visual-ring::after {
+            content: "";
+            position: absolute;
+            width: 11px;
+            height: 11px;
             background: #c5ff55;
-            margin: 23px auto 0;
+            border-radius: 50%;
+            box-shadow: 0 0 15px #c5ff55;
         }
 
-        /* SKILLS OVERVIEW */
+        .visual-ring::before {
+            top: 35px;
+            left: 35px;
+        }
 
-        .skills-overview {
+        .visual-ring::after {
+            bottom: 30px;
+            right: 35px;
+        }
+
+        .visual-ring.second {
+            width: 220px;
+            height: 220px;
+            border-style: dashed;
+            opacity: 0.5;
+            animation-direction: reverse;
+        }
+
+        .visual-center {
+            width: 145px;
+            height: 145px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(145deg, #293923, #172017);
+            border: 1px solid rgba(197,255,85,0.5);
+            border-radius: 50%;
+            box-shadow: 0 0 55px rgba(197,255,85,0.12);
+            z-index: 2;
+        }
+
+        .visual-center i {
+            color: #c5ff55;
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .visual-center strong {
+            font-size: 15px;
+            letter-spacing: 2px;
+        }
+
+        .visual-center small {
+            color: #a1ad9b;
+            font-size: 9px;
+            margin-top: 4px;
+        }
+
+        @keyframes rotateRing {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* FLOATING TECH LABELS */
+
+        .floating-tech {
+            position: absolute;
+            padding: 9px 13px;
+            color: #c5ff55;
+            background: #202a20;
+            border: 1px solid rgba(197,255,85,0.25);
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            z-index: 3;
+        }
+
+        .tech-one {
+            top: 20px;
+            right: 5px;
+        }
+
+        .tech-two {
+            top: 90px;
+            left: 0;
+        }
+
+        .tech-three {
+            bottom: 35px;
+            left: 15px;
+        }
+
+        .tech-four {
+            bottom: 15px;
+            right: 0;
+        }
+
+        /* =====================================
+           SKILL STATISTICS
+        ===================================== */
+
+        .skill-stats {
             max-width: 1100px;
-            margin: 0 auto 75px;
+            margin: 0 auto 85px;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
         }
 
-        .overview-card {
-            padding: 23px 15px;
+        .stat-card {
+            padding: 22px 12px;
+            background: #192019;
+            border: 1px solid #303b30;
+            border-radius: 13px;
             text-align: center;
-            background: linear-gradient(145deg, #1b251a, #151b15);
-            border: 1px solid rgba(197,255,85,0.13);
-            border-radius: 15px;
             transition: 0.3s;
         }
 
-        .overview-card:hover {
+        .stat-card:hover {
+            transform: translateY(-6px);
             border-color: #c5ff55;
-            transform: translateY(-5px);
+            background: #202b20;
         }
 
-        .overview-card i {
+        .stat-card i {
             color: #c5ff55;
-            font-size: 23px;
+            font-size: 21px;
             margin-bottom: 12px;
         }
 
-        .overview-card h2 {
-            font-size: 23px;
+        .stat-card h2 {
+            font-size: 25px;
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            color: #899487;
+            font-size: 10px;
+        }
+
+        /* =====================================
+           COMMON SECTION DESIGN
+        ===================================== */
+
+        .skill-section {
+            max-width: 1100px;
+            margin: 0 auto 75px;
+        }
+
+        .section-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+
+        .section-tag {
+            color: #c5ff55;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 9px;
+        }
+
+        .section-top h2 {
+            font-size: 26px;
             font-weight: 700;
         }
 
-        .overview-card p {
+        .section-top h2 span {
+            color: #c5ff55;
+        }
+
+        .section-description {
             color: #899487;
-            font-size: 11px;
-            margin-top: 5px;
+            font-size: 12px;
+            margin-top: 7px;
         }
 
-        /* CATEGORY */
-
-        .skill-category {
-            max-width: 1100px;
-            margin: 0 auto 65px;
+        .section-count {
+            color: #c5ff55;
+            font-size: 12px;
+            border: 1px solid rgba(197,255,85,0.3);
+            padding: 8px 13px;
+            border-radius: 30px;
+            white-space: nowrap;
         }
 
-        .category-heading {
+        /* =====================================
+           TECHNOLOGY SKILL MAP
+        ===================================== */
+
+        .skill-map {
+            display: grid;
+            gap: 15px;
+        }
+
+        .skill-lane {
+            display: grid;
+            grid-template-columns: 210px 1fr;
+            align-items: center;
+            gap: 25px;
+            padding: 22px 25px;
+            background: linear-gradient(110deg, #1c251b, #151c15);
+            border: 1px solid #303b30;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .skill-lane:hover {
+            border-color: rgba(197,255,85,0.6);
+            transform: translateX(5px);
+        }
+
+        .lane-title {
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 27px;
+            gap: 14px;
         }
 
-        .category-icon {
-            width: 52px;
-            height: 52px;
+        .lane-icon {
+            width: 46px;
+            height: 46px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #c5ff55;
             background: rgba(197,255,85,0.09);
             border: 1px solid rgba(197,255,85,0.2);
-            border-radius: 14px;
-            font-size: 21px;
+            border-radius: 12px;
+            font-size: 19px;
+            flex-shrink: 0;
         }
 
-        .category-heading h2 {
-            font-size: 21px;
+        .lane-title h3 {
+            font-size: 14px;
             font-weight: 600;
         }
 
-        .category-heading p {
-            color: #899487;
-            font-size: 12px;
+        .lane-title p {
+            color: #829080;
+            font-size: 10px;
             margin-top: 4px;
         }
 
-        /* SKILL CARDS */
-
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-        }
-
-        .skill-card {
-            position: relative;
-            min-height: 165px;
-            padding: 24px 20px;
-            background: linear-gradient(145deg, #1c251b, #151b15);
-            border: 1px solid rgba(197,255,85,0.12);
-            border-radius: 17px;
-            overflow: hidden;
-            transition: 0.35s ease;
-        }
-
-        .skill-card::before {
-            content: "";
-            position: absolute;
-            width: 100px;
-            height: 100px;
-            right: -45px;
-            bottom: -50px;
-            border-radius: 50%;
-            background: rgba(197,255,85,0.06);
-            transition: 0.4s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px);
-            border-color: #c5ff55;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.3);
-        }
-
-        .skill-card:hover::before {
-            transform: scale(1.6);
-        }
-
-        .skill-icon {
-            width: 48px;
-            height: 48px;
+        .lane-skills {
             display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-pill {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            background: rgba(197,255,85,0.1);
-            color: #c5ff55;
-            border-radius: 13px;
-            font-size: 25px;
-            margin-bottom: 18px;
+            gap: 9px;
+            padding: 11px 15px;
+            color: #dce5d7;
+            background: #222d22;
+            border: 1px solid #354235;
+            border-radius: 8px;
+            font-size: 12px;
             transition: 0.3s;
         }
 
-        .skill-card:hover .skill-icon {
-            background: #c5ff55;
-            color: #101410;
-            transform: rotate(-5deg);
-        }
-
-        .skill-card h3 {
+        .tech-pill i {
+            color: #c5ff55;
             font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 6px;
         }
 
-        .skill-card p {
-            color: #899487;
-            font-size: 11px;
-            line-height: 1.6;
+        .tech-pill:hover {
+            color: #101410;
+            background: #c5ff55;
+            border-color: #c5ff55;
+            transform: translateY(-3px);
         }
 
-        /* FRAMEWORKS */
+        .tech-pill:hover i {
+            color: #101410;
+        }
+
+        /* =====================================
+           FRAMEWORK CARDS
+        ===================================== */
 
         .framework-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
 
-        /* PERSONAL SKILLS */
-
-        .soft-skills {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 17px;
-        }
-
-        .soft-skill {
-            padding: 25px 12px;
-            text-align: center;
-            background: #1a211a;
-            border: 1px solid rgba(197,255,85,0.12);
-            border-radius: 15px;
+        .framework-card {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 28px;
+            background: linear-gradient(135deg, #1c271c, #151b15);
+            border: 1px solid #303b30;
+            border-radius: 16px;
+            overflow: hidden;
             transition: 0.3s;
         }
 
-        .soft-skill:hover {
+        .framework-card:hover {
             transform: translateY(-6px);
             border-color: #c5ff55;
-            background: rgba(197,255,85,0.07);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
         }
 
-        .soft-skill i {
+        .framework-icon {
+            width: 65px;
+            height: 65px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c5ff55;
+            background: rgba(197,255,85,0.1);
+            border-radius: 15px;
+            font-size: 32px;
+        }
+
+        .framework-info h3 {
+            font-size: 19px;
+            margin-bottom: 6px;
+        }
+
+        .framework-info p {
+            color: #929d90;
+            font-size: 12px;
+        }
+
+        .framework-info span {
+            display: inline-block;
+            color: #c5ff55;
+            font-size: 10px;
+            margin-top: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* =====================================
+           PERSONAL SKILLS
+        ===================================== */
+
+        .personal-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .personal-card {
+            padding: 26px 15px;
+            text-align: center;
+            background: #192019;
+            border: 1px solid #303b30;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .personal-card:hover {
+            background: #243024;
+            border-color: #c5ff55;
+            transform: translateY(-6px);
+        }
+
+        .personal-card i {
+            display: block;
             color: #c5ff55;
             font-size: 25px;
-            margin-bottom: 13px;
+            margin-bottom: 15px;
         }
 
-        .soft-skill h3 {
+        .personal-card h3 {
             font-size: 13px;
             font-weight: 500;
         }
 
-        /* BOTTOM MESSAGE */
+        /* =====================================
+           LEARNING MESSAGE
+        ===================================== */
 
-        .skills-message {
-            max-width: 850px;
-            margin: 75px auto 0;
-            padding: 40px 30px;
-            text-align: center;
-            border-radius: 20px;
-            border: 1px solid rgba(197,255,85,0.2);
-            background: linear-gradient(135deg, rgba(197,255,85,0.09), rgba(197,255,85,0.02));
+        .learning-card {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            background: linear-gradient(110deg, rgba(197,255,85,0.1), rgba(197,255,85,0.02));
+            border: 1px solid rgba(197,255,85,0.25);
+            border-radius: 18px;
         }
 
-        .skills-message i {
+        .learning-icon {
+            width: 65px;
+            height: 65px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #101410;
+            background: #c5ff55;
+            border-radius: 17px;
+            font-size: 27px;
+        }
+
+        .learning-content h2 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .learning-content h2 span {
             color: #c5ff55;
-            font-size: 30px;
-            margin-bottom: 18px;
         }
 
-        .skills-message h2 {
-            font-size: 22px;
-            margin-bottom: 13px;
-        }
-
-        .skills-message h2 span {
-            color: #c5ff55;
-        }
-
-        .skills-message p {
+        .learning-content p {
             color: #a4ada2;
-            font-size: 13px;
+            font-size: 12px;
             line-height: 1.9;
         }
 
-        /* ANIMATION */
+        /* =====================================
+           ANIMATIONS
+        ===================================== */
+
+        .animate-in {
+            animation: fadeUp 0.8s ease both;
+        }
 
         @keyframes fadeUp {
             from {
                 opacity: 0;
                 transform: translateY(25px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        .skills-heading,
-        .skills-overview,
-        .skill-category,
-        .skills-message {
-            animation: fadeUp 0.7s ease both;
+        .skill-section:nth-of-type(2) {
+            animation-delay: 0.1s;
         }
 
-        /* RESPONSIVE */
+        .skill-section:nth-of-type(3) {
+            animation-delay: 0.2s;
+        }
+
+        /* =====================================
+           RESPONSIVE DESIGN
+        ===================================== */
 
         @media(max-width: 1000px) {
-            .skill-grid {
+
+            .skills-page {
+                padding: 55px 6%;
+            }
+
+            .skills-hero {
+                grid-template-columns: 1fr 0.8fr;
+                gap: 20px;
+            }
+
+            .skill-stats {
                 grid-template-columns: repeat(3, 1fr);
             }
 
-            .skills-overview {
+            .skill-lane {
+                grid-template-columns: 180px 1fr;
+                gap: 15px;
+            }
+
+            .personal-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media(max-width: 700px) {
+
             .skills-page {
-                padding: 55px 5%;
+                padding: 40px 5%;
             }
 
-            .skill-grid,
-            .framework-grid {
+            .skills-hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 35px 0 55px;
+            }
+
+            .hero-content > p {
+                margin: auto;
+            }
+
+            .hero-bottom {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                min-height: 290px;
+            }
+
+            .visual-ring {
+                width: 245px;
+                height: 245px;
+            }
+
+            .visual-ring.second {
+                width: 195px;
+                height: 195px;
+            }
+
+            .visual-center {
+                width: 125px;
+                height: 125px;
+            }
+
+            .tech-one {
+                right: 5%;
+            }
+
+            .tech-two {
+                left: 3%;
+            }
+
+            .tech-three {
+                left: 5%;
+            }
+
+            .tech-four {
+                right: 3%;
+            }
+
+            .skill-stats {
                 grid-template-columns: repeat(2, 1fr);
+                margin-bottom: 65px;
             }
 
-            .soft-skills {
-                grid-template-columns: repeat(2, 1fr);
+            .skill-lane {
+                grid-template-columns: 1fr;
+                gap: 18px;
+                padding: 20px;
             }
 
-            .category-heading h2 {
-                font-size: 18px;
+            .lane-skills {
+                gap: 8px;
             }
 
-            .skills-message {
-                padding: 28px 20px;
+            .tech-pill {
+                padding: 10px 12px;
+                font-size: 11px;
             }
-        }
 
-        @media(max-width: 420px) {
-            .skill-grid,
             .framework-grid {
                 grid-template-columns: 1fr;
             }
 
-            .overview-card h2 {
+            .section-top {
+                align-items: flex-start;
+            }
+
+            .section-top h2 {
+                font-size: 22px;
+            }
+
+            .section-count {
+                font-size: 10px;
+            }
+
+            .learning-card {
+                padding: 27px 22px;
+                align-items: flex-start;
+            }
+        }
+
+        @media(max-width: 420px) {
+
+            .hero-content h1 {
+                font-size: 38px;
+            }
+
+            .hero-visual {
+                min-height: 260px;
+            }
+
+            .visual-ring {
+                width: 220px;
+                height: 220px;
+            }
+
+            .visual-ring.second {
+                width: 180px;
+                height: 180px;
+            }
+
+            .visual-center {
+                width: 110px;
+                height: 110px;
+            }
+
+            .visual-center i {
+                font-size: 30px;
+            }
+
+            .floating-tech {
+                font-size: 9px;
+                padding: 8px 10px;
+            }
+
+            .skill-stats {
+                gap: 10px;
+            }
+
+            .stat-card h2 {
+                font-size: 21px;
+            }
+
+            .personal-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section-top {
+                flex-direction: column;
+            }
+
+            .learning-card {
+                flex-direction: column;
+            }
+
+            .learning-content h2 {
                 font-size: 19px;
+            }
+        }
+
+        @media(prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
 
@@ -365,319 +775,414 @@
 
 <body>
 
-<!-- NAVBAR -->
+    <!-- NAVIGATION BAR -->
 
-<header>
-    <nav class="navbar">
+    <header>
+        <nav class="navbar">
 
-        <a href="index.html" class="logo">
-            <img src="Assets/images/logo.png" alt="ASWORA Logo">
-        </a>
+            <a href="index.html" class="logo">
+                <img src="Assets/images/logo.png" alt="ASWORA Logo">
+            </a>
 
-        <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="education.html">Education</a></li>
-            <li><a href="skills.html" class="active">Skills</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="certification.html">Certifications</a></li>
-        </ul>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="skills.html" class="active">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="certification.html">Certifications</a></li>
+            </ul>
 
-        <a href="contact.html" class="contact-btn">Contact Me</a>
+            <a href="contact.html" class="contact-btn">Contact Me</a>
 
-        <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
-            ☰
-        </button>
+            <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
+                ☰
+            </button>
 
-    </nav>
-</header>
+        </nav>
+    </header>
 
 
-<!-- SKILLS CONTENT -->
+    <!-- MAIN SKILLS PAGE -->
 
-<main class="skills-page">
+    <main class="skills-page">
 
-    <section class="skills-heading">
+        <!-- HERO SECTION -->
 
-        <p class="welcome">MY TECHNICAL ARSENAL</p>
+        <section class="skills-hero animate-in">
 
-        <h1>Skills & <span>Expertise</span></h1>
+            <div class="hero-content">
 
+                <div class="hero-label">
+                    <span></span>
+                    MY TECHNICAL ARSENAL
+                </div>
+
+                <h1>
+                    My Skills.<br>
+                    My <span>Toolkit.</span>
+                </h1>
+
+                <p>
+                    Every technology I explore adds something new to my
+                    development journey. Discover the programming languages,
+                    tools, frameworks, and personal strengths I use to turn
+                    ideas into meaningful applications.
+                </p>
+
+                <div class="hero-bottom">
+                    <div class="hero-line"></div>
+                    <p>LEARN · BUILD · IMPROVE</p>
+                </div>
+
+            </div>
+
+
+            <!-- ANIMATED SKILL VISUAL -->
+
+            <div class="hero-visual">
+
+                <div class="visual-ring"></div>
+                <div class="visual-ring second"></div>
+
+                <div class="visual-center">
+                    <i class="fas fa-laptop-code"></i>
+                    <strong>ASWORA</strong>
+                    <small>DEVELOPER TOOLKIT</small>
+                </div>
+
+                <div class="floating-tech tech-one">Java</div>
+                <div class="floating-tech tech-two">Python</div>
+                <div class="floating-tech tech-three">Laravel</div>
+                <div class="floating-tech tech-four">MySQL</div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SKILL STATISTICS -->
+
+        <section class="skill-stats">
+
+            <div class="stat-card">
+                <i class="fas fa-code"></i>
+                <h2>06</h2>
+                <p>Programming Languages</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fas fa-globe"></i>
+                <h2>04</h2>
+                <p>Web Technologies</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fas fa-layer-group"></i>
+                <h2>02</h2>
+                <p>Frameworks</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fas fa-database"></i>
+                <h2>03</h2>
+                <p>Tools & Technologies</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fas fa-user-check"></i>
+                <h2>04</h2>
+                <p>Personal Skills</p>
+            </div>
+
+        </section>
+
+
+        <!-- TECHNOLOGY SKILL MAP -->
+
+        <section class="skill-section animate-in">
+
+            <div class="section-top">
+
+                <div>
+                    <p class="section-tag">01 / TECHNICAL SKILLS</p>
+                    <h2>My Technology <span>Map</span></h2>
+                    <p class="section-description">
+                        The technologies and languages in my development toolkit.
+                    </p>
+                </div>
+
+                <div class="section-count">TECH STACK</div>
+
+            </div>
+
+
+            <div class="skill-map">
+
+                <!-- PROGRAMMING LANGUAGES -->
+
+                <div class="skill-lane">
+
+                    <div class="lane-title">
+                        <div class="lane-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+
+                        <div>
+                            <h3>Programming</h3>
+                            <p>Languages</p>
+                        </div>
+                    </div>
+
+                    <div class="lane-skills">
+
+                        <span class="tech-pill">
+                            <i class="fab fa-java"></i> Java
+                        </span>
+
+                        <span class="tech-pill">
+                            <i class="fab fa-python"></i> Python
+                        </span>
+
+                        <span class="tech-pill">
+                            <i class="fab fa-php"></i> PHP
+                        </span>
+
+                        <span class="tech-pill">
+                            <i class="fab fa-js"></i> JavaScript
+                        </span>
+
+                        <span class="tech-pill">
+                            <i class="fas fa-code"></i> C
+                        </span>
+
+                        <span class="tech-pill">
+                            <i class="fas fa-laptop-code"></i> C++
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WEB TECHNOLOGIES -->
+
+                <div class="skill-lane">
+
+                    <div class="lane-title">
+                        <div class="lane-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+
+                        <div>
+                            <h3>Web Development</h3>
+                            <p>Frontend Technologies</p>
+                        </div>
+                    </div>
+
+                    <div class="lane-skills">
+
+                        <span class="tech-pill">
+                            <i class="fab fa-html5"></i> HTML
+                        </span>
+
+                        <span class="tech-pill">
+                            <i class="fab fa-css3-alt"></i> CSS
+                        </span>
+
+                        <span class="tech-pill">
+                            <i class="fab fa-js"></i> JavaScript
+                        </span>
+
+                        <span class="tech-pill">
+                            <i class="fab fa-bootstrap"></i> Bootstrap
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DATABASE AND TOOLS -->
+
+                <div class="skill-lane">
+
+                    <div class="lane-title">
+                        <div class="lane-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+
+                        <div>
+                            <h3>Database & Tools</h3>
+                            <p>Development Environment</p>
+                        </div>
+                    </div>
+
+                    <div class="lane-skills">
+
+                        <span class="tech-pill">
+                            <i class="fas fa-database"></i> MySQL
+                        </span>
+
+                        <span class="tech-pill">
+                            <i class="fab fa-linux"></i> Linux
+                        </span>
+
+                        <span class="tech-pill">
+                            <i class="fas fa-code"></i> VS Code
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FRAMEWORKS -->
+
+        <section class="skill-section animate-in">
+
+            <div class="section-top">
+
+                <div>
+                    <p class="section-tag">02 / DEVELOPMENT FRAMEWORKS</p>
+                    <h2>Frameworks I <span>Explore</span></h2>
+                    <p class="section-description">
+                        Frameworks used in my web application development.
+                    </p>
+                </div>
+
+                <div class="section-count">02 FRAMEWORKS</div>
+
+            </div>
+
+
+            <div class="framework-grid">
+
+                <div class="framework-card">
+
+                    <div class="framework-icon">
+                        <i class="fab fa-laravel"></i>
+                    </div>
+
+                    <div class="framework-info">
+                        <h3>Laravel</h3>
+                        <p>PHP Web Application Framework</p>
+                        <span>PHP DEVELOPMENT</span>
+                    </div>
+
+                </div>
+
+
+                <div class="framework-card">
+
+                    <div class="framework-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+
+                    <div class="framework-info">
+                        <h3>Django</h3>
+                        <p>Python Web Application Framework</p>
+                        <span>PYTHON DEVELOPMENT</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PERSONAL SKILLS -->
+
+        <section class="skill-section animate-in">
+
+            <div class="section-top">
+
+                <div>
+                    <p class="section-tag">03 / PERSONAL STRENGTHS</p>
+                    <h2>Beyond <span>Technology</span></h2>
+                    <p class="section-description">
+                        Personal qualities that support my learning and development.
+                    </p>
+                </div>
+
+                <div class="section-count">SOFT SKILLS</div>
+
+            </div>
+
+
+            <div class="personal-grid">
+
+                <div class="personal-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Problem Solving</h3>
+                </div>
+
+                <div class="personal-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Teamwork</h3>
+                </div>
+
+                <div class="personal-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Quick Learning</h3>
+                </div>
+
+                <div class="personal-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Communication</h3>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL MESSAGE -->
+
+        <section class="learning-card">
+
+            <div class="learning-icon">
+                <i class="fas fa-rocket"></i>
+            </div>
+
+            <div class="learning-content">
+
+                <h2>
+                    Always Learning,
+                    <span>Always Growing.</span>
+                </h2>
+
+                <p>
+                    My learning journey doesn't stop here. I enjoy exploring
+                    new technologies, improving my programming knowledge,
+                    and building practical projects that turn creative ideas
+                    into useful applications.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
         <p>
-            My technical skills and abilities developed through academic
-            learning, practical projects, and continuous exploration
-            of modern technologies.
+            © 2026 ASWORA | Designed by Aswathy Shaji
         </p>
+    </footer>
 
-        <div class="heading-line"></div>
 
-    </section>
+    <!-- JAVASCRIPT -->
 
-
-    <!-- SKILLS OVERVIEW -->
-
-    <section class="skills-overview">
-
-        <div class="overview-card">
-            <i class="fas fa-code"></i>
-            <h2>6+</h2>
-            <p>Programming Languages</p>
-        </div>
-
-        <div class="overview-card">
-            <i class="fas fa-globe"></i>
-            <h2>4+</h2>
-            <p>Web Technologies</p>
-        </div>
-
-        <div class="overview-card">
-            <i class="fas fa-layer-group"></i>
-            <h2>2+</h2>
-            <p>Frameworks</p>
-        </div>
-
-        <div class="overview-card">
-            <i class="fas fa-user-check"></i>
-            <h2>4</h2>
-            <p>Personal Skills</p>
-        </div>
-
-    </section>
-
-
-    <!-- PROGRAMMING LANGUAGES -->
-
-    <section class="skill-category">
-
-        <div class="category-heading">
-            <div class="category-icon"><i class="fas fa-code"></i></div>
-            <div>
-                <h2>Programming Languages</h2>
-                <p>Languages for software and application development</p>
-            </div>
-        </div>
-
-        <div class="skill-grid">
-
-            <div class="skill-card">
-                <div class="skill-icon"><i class="fab fa-java"></i></div>
-                <h3>Java</h3>
-                <p>Object-Oriented Programming</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon"><i class="fab fa-python"></i></div>
-                <h3>Python</h3>
-                <p>Application Development</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon"><i class="fab fa-php"></i></div>
-                <h3>PHP</h3>
-                <p>Server-Side Development</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon"><i class="fab fa-js"></i></div>
-                <h3>JavaScript</h3>
-                <p>Interactive Programming</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon"><i class="fas fa-c"></i></div>
-                <h3>C</h3>
-                <p>Structured Programming</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon"><i class="fas fa-laptop-code"></i></div>
-                <h3>C++</h3>
-                <p>Object-Oriented Programming</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- WEB TECHNOLOGIES -->
-
-    <section class="skill-category">
-
-        <div class="category-heading">
-            <div class="category-icon"><i class="fas fa-globe"></i></div>
-            <div>
-                <h2>Web Technologies</h2>
-                <p>Building responsive and interactive websites</p>
-            </div>
-        </div>
-
-        <div class="skill-grid">
-
-            <div class="skill-card">
-                <div class="skill-icon"><i class="fab fa-html5"></i></div>
-                <h3>HTML</h3>
-                <p>Web Page Structure</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
-                <h3>CSS</h3>
-                <p>Styling and Layouts</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon"><i class="fab fa-js"></i></div>
-                <h3>JavaScript</h3>
-                <p>Dynamic Web Pages</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon"><i class="fab fa-bootstrap"></i></div>
-                <h3>Bootstrap</h3>
-                <p>Responsive UI Design</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- FRAMEWORKS -->
-
-    <section class="skill-category">
-
-        <div class="category-heading">
-            <div class="category-icon"><i class="fas fa-layer-group"></i></div>
-            <div>
-                <h2>Frameworks</h2>
-                <p>Frameworks used in web application development</p>
-            </div>
-        </div>
-
-        <div class="framework-grid">
-
-            <div class="skill-card">
-                <div class="skill-icon"><i class="fab fa-laravel"></i></div>
-                <h3>Laravel</h3>
-                <p>PHP Web Framework</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon"><i class="fab fa-python"></i></div>
-                <h3>Django</h3>
-                <p>Python Web Framework</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- DATABASE AND TOOLS -->
-
-    <section class="skill-category">
-
-        <div class="category-heading">
-            <div class="category-icon"><i class="fas fa-database"></i></div>
-            <div>
-                <h2>Database & Development Tools</h2>
-                <p>Tools and platforms used in my development workflow</p>
-            </div>
-        </div>
-
-        <div class="skill-grid">
-
-            <div class="skill-card">
-                <div class="skill-icon"><i class="fas fa-database"></i></div>
-                <h3>MySQL</h3>
-                <p>Database Management</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon"><i class="fab fa-linux"></i></div>
-                <h3>Linux</h3>
-                <p>Operating System and Shell Commands</p>
-            </div>
-
-            <div class="skill-card">
-                <div class="skill-icon"><i class="fas fa-code"></i></div>
-                <h3>Visual Studio Code</h3>
-                <p>Code Editor</p>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PERSONAL SKILLS -->
-
-    <section class="skill-category">
-
-        <div class="category-heading">
-            <div class="category-icon"><i class="fas fa-user-check"></i></div>
-            <div>
-                <h2>Personal Skills</h2>
-                <p>Strengths that support my professional growth</p>
-            </div>
-        </div>
-
-        <div class="soft-skills">
-
-            <div class="soft-skill">
-                <i class="fas fa-brain"></i>
-                <h3>Problem Solving</h3>
-            </div>
-
-            <div class="soft-skill">
-                <i class="fas fa-users"></i>
-                <h3>Teamwork</h3>
-            </div>
-
-            <div class="soft-skill">
-                <i class="fas fa-lightbulb"></i>
-                <h3>Quick Learning</h3>
-            </div>
-
-            <div class="soft-skill">
-                <i class="fas fa-comments"></i>
-                <h3>Communication</h3>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- BOTTOM MESSAGE -->
-
-    <section class="skills-message">
-
-        <i class="fas fa-rocket"></i>
-
-        <h2>Always Learning, <span>Always Growing.</span></h2>
-
-        <p>
-            Technology is constantly evolving, and so am I.
-            I believe in continuously improving my skills,
-            exploring new technologies, and turning ideas
-            into meaningful applications.
-        </p>
-
-    </section>
-
-</main>
-
-
-<!-- FOOTER -->
-
-<footer>
-    <p>© 2026 ASWORA | Designed by Aswathy Shaji</p>
-</footer>
-
-
-<script src="Assets/javascript/script.js"></script>
+    <script src="Assets/javascript/script.js"></script>
 
 </body>
 </html>

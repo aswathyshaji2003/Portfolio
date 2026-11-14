@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ASWORA | My Portfolio</title>
+    <meta name="description" content="Portfolio of Aswathy Shaji, MCA student and aspiring software developer.">
+
+    <title>ASWORA | Aswathy Shaji</title>
 
     <link rel="stylesheet" href="Assets/css/style.css">
 </head>
@@ -14,11 +16,11 @@
 
     <!-- NAVBAR -->
     <header>
-        <nav class="navbar">
+        <nav class="navbar" aria-label="Main navigation">
 
             <a href="index.html" class="logo">
-    <img src="Assets/images/logo.png" alt="ASWORA Logo">
-</a>
+                <img src="Assets/images/logo.png" alt="ASWORA Logo">
+            </a>
 
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="active">Home</a></li>
@@ -31,7 +33,12 @@
 
             <a href="contact.html" class="contact-btn">Contact Me</a>
 
-            <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">
+            <button class="menu-btn"
+                    id="menuBtn"
+                    type="button"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false"
+                    aria-controls="navLinks">
                 ☰
             </button>
 
@@ -39,59 +46,375 @@
     </header>
 
 
-    <!-- HOME SECTION -->
-    <main class="home">
+    <main>
 
-        <div class="home-content">
+        <!-- HERO SECTION -->
+        <section class="home" id="home">
 
-            <p class="welcome">WELCOME TO MY PORTFOLIO</p>
+            <div class="home-content">
 
-            <h1>Hello, I'm <span>Aswathy Shaji</span></h1>
+                <p class="welcome">WELCOME TO MY PORTFOLIO</p>
 
-            <h2>MCA Student | Aspiring Software Developer</h2>
+                <h1>Hello, I'm <span>Aswathy Shaji</span></h1>
 
-            <p class="description">
-                I am passionate about technology, programming and web development.
-                I enjoy creating meaningful projects and exploring new technologies.
-                Welcome to my personal portfolio, where you can learn more about me,
-                my education, skills and projects.
+                <h2>
+                    MCA Student |
+                    <span id="typingText" class="typing-text">
+                        Aspiring Software Developer
+                    </span>
+                </h2>
+
+                <p class="description">
+                    I am passionate about technology, programming and web development.
+                    I enjoy creating meaningful projects, solving problems and exploring
+                    new technologies. Take a look around to know more about my journey.
+                </p>
+
+                <div class="home-buttons">
+
+                    <a href="#featured-work" class="primary-btn">
+                        Explore My Work <span>↘</span>
+                    </a>
+
+                    <a href="about.html" class="secondary-btn">
+                        More About Me
+                    </a>
+
+                </div>
+
+                <div class="social-text">
+                    <span>Creative Thinker</span>
+                    <span>•</span>
+                    <span>Technology Enthusiast</span>
+                    <span>•</span>
+                    <span>Always Learning</span>
+                </div>
+
+            </div>
+
+
+            <!-- PROFILE IMAGE -->
+            <div class="home-image">
+
+                <div class="image-orbit orbit-one"></div>
+                <div class="image-orbit orbit-two"></div>
+
+                <div class="image-circle">
+
+                    <img src="assets/images/me.jpeg"
+                         alt="Aswathy Shaji">
+
+                </div>
+
+                <div class="image-label">
+                    <span>✦</span> Welcome to ASWORA
+                </div>
+
+                <div class="floating-note">
+
+                    <span class="floating-note-icon">✧</span>
+
+                    <span>
+                        <strong>Curious Mind</strong>
+                        <small>Learning every day</small>
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- SCROLL BUTTON -->
+            <a class="scroll-cue"
+               href="#intro-preview"
+               aria-label="Scroll to introduction">
+
+                <span>SCROLL TO EXPLORE</span>
+                <span class="scroll-cue-arrow">↓</span>
+
+            </a>
+
+        </section>
+
+
+        <!-- INTRODUCTION SECTION -->
+        <section class="home-section intro-preview reveal"
+                 id="intro-preview">
+
+            <div class="section-kicker">
+                A LITTLE INTRODUCTION
+            </div>
+
+            <div class="intro-layout">
+
+                <div>
+                    <h2 class="home-section-title">
+                        Turning curiosity into
+                        <span>creation.</span>
+                    </h2>
+                </div>
+
+                <div class="intro-copy">
+
+                    <p>
+                        I am an MCA student who enjoys learning how technology
+                        can solve everyday problems. I like exploring programming
+                        concepts and building useful web applications through
+                        hands-on projects.
+                    </p>
+
+                    <a href="about.html" class="text-arrow-link">
+                        Discover more about me <span>→</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK FACTS -->
+            <div class="quick-facts">
+
+                <div class="quick-fact">
+                    <span class="fact-symbol">01</span>
+                    <strong>Learn</strong>
+                    <small>Explore new ideas and technologies</small>
+                </div>
+
+                <div class="quick-fact">
+                    <span class="fact-symbol">02</span>
+                    <strong>Build</strong>
+                    <small>Turn ideas into practical projects</small>
+                </div>
+
+                <div class="quick-fact">
+                    <span class="fact-symbol">03</span>
+                    <strong>Grow</strong>
+                    <small>Improve through every experience</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURED PROJECTS SECTION -->
+        <section class="home-section featured-section reveal"
+                 id="featured-work">
+
+            <div class="section-heading-row">
+
+                <div>
+
+                    <div class="section-kicker">
+                        SELECTED WORK
+                    </div>
+
+                    <h2 class="home-section-title">
+                        A few things I've <span>built.</span>
+                    </h2>
+
+                    <p class="section-subtitle">
+                        A glimpse of my academic and development projects.
+                    </p>
+
+                </div>
+
+                <a href="projects.html"
+                   class="text-arrow-link desktop-project-link">
+
+                    View all projects <span>→</span>
+
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT CARDS -->
+            <div class="featured-grid">
+
+                <!-- PROJECT 1 -->
+                <article class="featured-card">
+
+                    <div class="featured-card-top">
+
+                        <span>01 / BCA MINI PROJECT</span>
+                        <span class="featured-icon">▤</span>
+
+                    </div>
+
+                    <h3>Learning Management System</h3>
+
+                    <p>
+                        A web-based platform designed to support course and
+                        student management, learning activities and progress tracking.
+                    </p>
+
+                    <div class="project-tech">
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                        <span>HTML / CSS</span>
+                    </div>
+
+                    <a href="projects.html"
+                       class="card-arrow"
+                       aria-label="View Learning Management System project">
+                        ↗
+                    </a>
+
+                </article>
+
+
+                <!-- PROJECT 2 -->
+                <article class="featured-card featured-card-highlight">
+
+                    <div class="featured-card-top">
+
+                        <span>02 / BCA MAIN PROJECT</span>
+                        <span class="featured-icon">◇</span>
+
+                    </div>
+
+                    <h3>Near-Wear Shopping Management</h3>
+
+                    <p>
+                        An online shopping management project focused on
+                        products, customers, orders and administration.
+                    </p>
+
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Django</span>
+                        <span>Web Development</span>
+                    </div>
+
+                    <a href="projects.html"
+                       class="card-arrow"
+                       aria-label="View Near-Wear project">
+                        ↗
+                    </a>
+
+                </article>
+
+
+                <!-- PROJECT 3 -->
+                <article class="featured-card">
+
+                    <div class="featured-card-top">
+
+                        <span>03 / MCA MINI PROJECT</span>
+                        <span class="featured-icon">✳</span>
+
+                    </div>
+
+                    <h3>AI Diet Plan Recommendation</h3>
+
+                    <p>
+                        A diet management application that prepares
+                        recommendations from user details for coach review
+                        and approval.
+                    </p>
+
+                    <div class="project-tech">
+                        <span>Laravel</span>
+                        <span>MySQL</span>
+                        <span>AI Integration</span>
+                    </div>
+
+                    <a href="projects.html"
+                       class="card-arrow"
+                       aria-label="View AI Diet Plan project">
+                        ↗
+                    </a>
+
+                </article>
+
+            </div>
+
+
+            <a href="projects.html"
+               class="text-arrow-link mobile-project-link">
+
+                View all projects <span>→</span>
+
+            </a>
+
+        </section>
+
+
+        <!-- EXPLORE OTHER PAGES -->
+        <section class="home-section explore-section reveal"
+                 id="explore">
+
+            <div class="section-kicker">
+                EXPLORE ASWORA
+            </div>
+
+            <h2 class="home-section-title">
+                Get to know <span>my journey.</span>
+            </h2>
+
+
+            <div class="explore-links">
+
+                <a href="education.html">
+                    <span>01</span>
+                    <strong>Education</strong>
+                    <span class="explore-arrow">↗</span>
+                </a>
+
+                <a href="skills.html">
+                    <span>02</span>
+                    <strong>Skills</strong>
+                    <span class="explore-arrow">↗</span>
+                </a>
+
+                <a href="certifications.html">
+                    <span>03</span>
+                    <strong>Certifications</strong>
+                    <span class="explore-arrow">↗</span>
+                </a>
+
+                <a href="contact.html">
+                    <span>04</span>
+                    <strong>Contact</strong>
+                    <span class="explore-arrow">↗</span>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT CTA -->
+        <section class="home-cta reveal">
+
+            <p class="section-kicker">
+                HAVE A PROJECT OR AN IDEA?
             </p>
 
-            <div class="home-buttons">
-                <a href="projects.html" class="primary-btn">Explore My Projects</a>
-                <a href="about.html" class="secondary-btn">More About Me</a>
-            </div>
+            <h2>
+                Let's create something <span>meaningful.</span>
+            </h2>
 
-            <div class="social-text">
-                <span>Creative Thinker</span>
-                <span>•</span>
-                <span>Technology Enthusiast</span>
-            </div>
+            <a href="contact.html" class="primary-btn">
+                Get in Touch <span>→</span>
+            </a>
 
-        </div>
-
-
-        <!-- PROFILE IMAGE -->
-        <div class="home-image">
-
-            <div class="image-circle">
-                <img src="assets/images/me.jpeg"
-                     alt="Aswathy Shaji Profile Picture">
-            </div>
-
-            <div class="image-label">
-                <span>✦</span> Welcome to ASWORA
-            </div>
-
-        </div>
+        </section>
 
     </main>
 
+
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 ASWORA | Designed by Aswathy Shaji</p>
+        <p class="copyright">
+            © 2026 ASWORA. ALL RIGHTS RESERVED.
+        </p>
     </footer>
 
 
+    <!-- JAVASCRIPT -->
     <script src="assets/JavaScript/script.js"></script>
 
 </body>

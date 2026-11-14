@@ -3,201 +3,118 @@
    ASWORA - INTERACTIVE JAVASCRIPT
    ========================================= */
 
-
-// 1. TYPING ANIMATION
-
-const typingText = document.getElementById("typingText");
-
-const roles = [
-    "WEB DEVELOPER",
-    "CREATIVE THINKER",
-    "TECH ENTHUSIAST",
-    "PROBLEM SOLVER"
-];
-
-let roleIndex = 0;
-let charIndex = 0;
-let deleting = false;
-
-function typeEffect() {
-
-    if (!typingText) return;
-
-    const currentRole = roles[roleIndex];
-
-    if (!deleting) {
-
-        typingText.textContent =
-            currentRole.substring(0, charIndex + 1);
-
-        charIndex++;
-
-        if (charIndex === currentRole.length) {
-            deleting = true;
-            setTimeout(typeEffect, 1400);
-            return;
-        }
-
-    } else {
-
-        typingText.textContent =
-            currentRole.substring(0, charIndex - 1);
-
-        charIndex--;
-
-        if (charIndex === 0) {
-            deleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-        }
-
-    }
-
-    setTimeout(typeEffect, deleting ? 45 : 100);
-}
-
-typeEffect();
-
-
-// 2. MOUSE FOLLOWING GLOW
-
-const cursorGlow = document.querySelector(".cursor-glow");
-
-if (cursorGlow) {
-
-    document.addEventListener("mousemove", function(event) {
-
-        cursorGlow.style.left = event.clientX + "px";
-        cursorGlow.style.top = event.clientY + "px";
-
-    });
-
-}
-
-
-// 3. MOBILE NAVIGATION
-
-const menuToggle = document.getElementById("menuToggle");
+// 1. MOBILE NAVIGATION
+const menuBtn = document.getElementById("menuBtn");
 const navLinks = document.getElementById("navLinks");
 
-if (menuToggle && navLinks) {
-
-    menuToggle.addEventListener("click", function() {
-
-        navLinks.classList.toggle("show");
-
+if (menuBtn && navLinks) {
+    menuBtn.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("show");
+        menuBtn.setAttribute("aria-expanded", String(isOpen));
+        menuBtn.textContent = isOpen ? "×" : "☰";
     });
 
-    document.querySelectorAll(".nav-link").forEach(link => {
-
-        link.addEventListener("click", function() {
-
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
             navLinks.classList.remove("show");
-
+            menuBtn.setAttribute("aria-expanded", "false");
+            menuBtn.textContent = "☰";
         });
-
     });
 
+    document.addEventListener("click", event => {
+        if (!navLinks.contains(event.target) && !menuBtn.contains(event.target)) {
+            navLinks.classList.remove("show");
+            menuBtn.setAttribute("aria-expanded", "false");
+            menuBtn.textContent = "☰";
+        }
+    });
 }
 
+// 2. TYPING ANIMATION
+const typingText = document.getElementById("typingText");
 
-// 4. SCROLL REVEAL ANIMATION
+if (typingText) {
+    const roles = [
+        "Aspiring Software Developer",
+        "Web Development Enthusiast",
+        "Creative Thinker",
+        "Problem Solver"
+    ];
 
+    let roleIndex = 0;
+    let charIndex = roles[0].length;
+    let deleting = false;
+
+    function typeEffect() {
+        const currentRole = roles[roleIndex];
+
+        if (!deleting) {
+            charIndex++;
+            typingText.textContent = currentRole.substring(0, charIndex);
+
+            if (charIndex >= currentRole.length) {
+                deleting = true;
+                setTimeout(typeEffect, 1300);
+                return;
+            }
+        } else {
+            charIndex--;
+            typingText.textContent = currentRole.substring(0, charIndex);
+
+            if (charIndex <= 0) {
+                deleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+            }
+        }
+
+        setTimeout(typeEffect, deleting ? 45 : 85);
+    }
+
+    setTimeout(typeEffect, 1200);
+}
+
+// 3. SCROLL REVEAL ANIMATION
 const revealElements = document.querySelectorAll(".reveal");
 
-const observer = new IntersectionObserver(function(entries) {
+if ("IntersectionObserver" in window && revealElements.length) {
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                currentObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
 
-    entries.forEach(entry => {
+    revealElements.forEach(element => observer.observe(element));
+} else {
+    revealElements.forEach(element => element.classList.add("visible"));
+}
 
-        if (entry.isIntersecting) {
-
-            entry.target.classList.add("visible");
-
-            observer.unobserve(entry.target);
-
-        }
-
-    });
-
-}, {
-    threshold: 0.12
-});
-
-revealElements.forEach(element => {
-
-    observer.observe(element);
-
-});
-
-
-// 5. ACTIVE NAVIGATION ON SCROLL
-
-const sections = document.querySelectorAll("main section[id]");
-const navigationLinks = document.querySelectorAll(".nav-link");
-
-window.addEventListener("scroll", function() {
-
-    let currentSection = "";
-
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 150;
-
-        if (window.scrollY >= sectionTop) {
-
-            currentSection = section.getAttribute("id");
-
-        }
-
-    });
-
-    navigationLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if (link.getAttribute("href") === "#" + currentSection) {
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-});
-
-
-// 6. SMOOTH SCROLL
-
+// 4. SMOOTH SCROLL FOR IN-PAGE LINKS
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-    anchor.addEventListener("click", function(event) {
-
-        const targetId = this.getAttribute("href");
+    anchor.addEventListener("click", event => {
+        const targetId = anchor.getAttribute("href");
+        if (!targetId || targetId === "#") return;
 
         const target = document.querySelector(targetId);
 
         if (target) {
-
             event.preventDefault();
-
             target.scrollIntoView({
-                behavior: "smooth"
+                behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+                    ? "auto" : "smooth",
+                block: "start"
             });
-
         }
-
     });
-
 });
 
-
-// 7. CURRENT YEAR
-
+// 5. AUTOMATIC COPYRIGHT YEAR
 const copyright = document.querySelector(".copyright");
 
 if (copyright) {
-
     copyright.textContent =
-        "© " + new Date().getFullYear() +
-        " ASWORA. ALL RIGHTS RESERVED.";
-
+        `© ${new Date().getFullYear()} ASWORA. ALL RIGHTS RESERVED.`;
 }
